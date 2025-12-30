@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Myo Pa Pa Aung | Portfolio</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-color: #030712;
+            --glass-bg: rgba(17, 24, 39, 0.7);
+            --border: rgba(255, 255, 255, 0.08);
+            --accent: #8b5cf6; /* Modern Violet */
+            --text-main: #f9fafb;
+            --text-dim: #9ca3af;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg-color);
+            /* Soft Ambient Glows */
+            background-image: 
+                radial-gradient(circle at 15% 15%, rgba(139, 92, 246, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 85% 85%, rgba(56, 189, 248, 0.1) 0%, transparent 40%);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        /* --- Glass Card Layout --- */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--border);
+            width: 100%;
+            max-width: 750px;
+            border-radius: 32px;
+            padding: 40px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 40px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- Profile Image --- */
+        .profile-side {
+            flex: 1;
+            text-align: center;
+        }
+
+        .img-container {
+            position: relative;
+            width: 180px;
+            height: 180px;
+            margin: 0 auto;
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--bg-color);
+            position: relative;
+            z-index: 2;
+        }
+
+        .img-glow {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: var(--accent);
+            border-radius: 50%;
+            filter: blur(15px);
+            opacity: 0.4;
+            z-index: 1;
+        }
+
+        /* --- Text Content --- */
+        .info-side {
+            flex: 1.5;
+        }
+
+        .label {
+            font-size: 0.85rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            letter-spacing: -1px;
+            background: linear-gradient(to bottom right, #fff, #9ca3af);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .bio {
+            color: var(--text-dim);
+            line-height: 1.6;
+            font-size: 1.05rem;
+            margin-bottom: 30px;
+        }
+
+        /* --- Buttons --- */
+        .actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 14px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-main {
+            background: var(--accent);
+            color: white;
+            box-shadow: 0 10px 20px -5px rgba(139, 92, 246, 0.4);
+        }
+
+        .btn-main:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 25px -5px rgba(139, 92, 246, 0.5);
+        }
+
+        .btn-sec {
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+            border: 1px solid var(--border);
+        }
+
+        .btn-sec:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 700px) {
+            .glass-card {
+                flex-direction: column;
+                text-align: center;
+                padding: 40px 20px;
+            }
+            .actions {
+                justify-content: center;
+            }
+            h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="glass-card">
+        
+        <div class="profile-side">
+            <div class="img-container">
+                <div class="img-glow"></div>
+                <img src="mpp.jpg" alt="Myo Pa Pa Aung" class="profile-img">
+            </div>
+        </div>
+
+        <div class="info-side">
+            <span class="label">Computer Science Student</span>
+            <h1>Myo Pa Pa Aung</h1>
+            <p class="bio">
+                Final-year student.
+            </p>
+            
+            <div class="actions">
+                <a href="mailto:myatpanphyu@email.com" class="btn btn-main">
+                    <i class="far fa-envelope"></i> Email Me
+                </a>
+                <a href="https://github.com/myatpanphhu-ui" class="btn btn-sec">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
